@@ -16,13 +16,6 @@ class _EmployeesState extends State<Employees> {
   late TextEditingController controllerTextField;
   final controller = Get.put(Controller());
 
-  // List detailHeaderController = [
-  //   controllerTextFieldName,
-  //   controllerTextFieldPhone,
-  //   controllerTextFieldAdres,
-  //   controllerTextFieldFirma,
-  //   controllerTextFieldServis
-  // ];
   int? index = 0;
 
   @override
