@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uzman/controller.dart';
+import 'package:uzman/downloads/excel_download.dart';
 import 'package:uzman/pages/calisanlar/employees.dart';
 import 'package:uzman/pages/firmalar/companies.dart';
 import 'package:uzman/pages/servis_g%C3%BCzergahlari/service.dart';
@@ -20,10 +21,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
           title: Obx(() => Text("UzmanGrup${controller.showDetails}}")),
-          centerTitle: true),
+          centerTitle: true,
+          actions: [
+            IconButton(
+              onPressed: Excel().createExcel,
+              icon: Icon(Icons.print),
+            )
+          ]),
       drawer: NavigationDrawerMenu(),
       body: Row(children: [
-        Expanded(child: NavigationDrawerMenu(), flex: 1),
+        // Expanded(child: NavigationDrawerMenu(), flex: 1),
         Obx(
           () => Expanded(
               flex: 5,

@@ -38,8 +38,13 @@ class _CompaniesState extends State<Companies> {
           width: double.maxFinite,
           child: Obx(
             () => DataTable(
-              headingTextStyle:
-                  TextStyle(fontWeight: FontWeight.normal, fontSize: 18),
+              headingRowColor: MaterialStatePropertyAll(Colors.blue),
+              headingTextStyle: TextStyle(
+                decorationColor: Colors.red,
+                color: Colors.white,
+                fontWeight: FontWeight.normal,
+                fontSize: 18,
+              ),
               border: TableBorder(horizontalInside: BorderSide()),
               sortAscending: isAscendig,
               sortColumnIndex: sortColumnIndex,
@@ -54,7 +59,7 @@ class _CompaniesState extends State<Companies> {
 
   List<DataColumn> getColums(List<String> colums) => colums
       .map((String colum) => DataColumn(
-            label: Text(colum),
+            label: Expanded(child: Text(colum)),
             onSort: onSort,
           ))
       .toList();

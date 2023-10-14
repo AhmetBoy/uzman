@@ -13,7 +13,7 @@ class Controller extends ChangeNotifier {
     EmployeesModal(
         image_url:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_r7lWOC2mDvP8rQZD2CPgbo9YwrMvCHCtWg&usqp=CAU",
-        name: "Ahmet",
+        name: "Ahmet2",
         surName: "BOY",
         phone_number: "0 542 383 3236",
         adres: "Fevzi çakmak mahallesi Yüksel sokak No:7 D:1",
@@ -143,8 +143,14 @@ class Controller extends ChangeNotifier {
         yas: 20,
         isSelected: false),
   ].obs;
-  List<String> detailHintText =
-      ["name", "phone_number", "adres", "servis_güzergahı", ""].obs;
+  List<String> detailHintText = [
+    "First Name",
+    "Last Name",
+    "Tel",
+    "Servis Noktası",
+    "Yaş",
+    "Firma İsmi"
+  ].obs;
   List<TextEditingController> textEditingControllerList = [];
 
   void snackBar(context, bool addOrDelete) {
@@ -174,11 +180,15 @@ class Controller extends ChangeNotifier {
   }
 
   void addEmployee() {
+    print("yas: ${(textEditingControllerList[4].text).runtimeType}");
+    print("yas: ${int.parse(textEditingControllerList[4].text).runtimeType}");
     employeesInformation.add(EmployeesModal(
         name: textEditingControllerList[0].text,
-        phone_number: textEditingControllerList[1].text,
-        adres: textEditingControllerList[2].text,
-        servis_noktasi: textEditingControllerList[3].text));
+        surName: textEditingControllerList[1].text,
+        phone_number: textEditingControllerList[2].text,
+        servis_noktasi: textEditingControllerList[3].text,
+        yas: int.parse(textEditingControllerList[4].text),
+        gunluk_firma_ismi: textEditingControllerList[5].text));
     detailId.value = employeesInformation.length -
         1; // en son eklenen elemanı detail bölümünde gözüksün diye listenin son elemanına eşitliyoruz.
   }

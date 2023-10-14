@@ -23,7 +23,11 @@ class _EmployeesState extends State<Employees> {
     for (int i = 0;
         i < controller.detailHintText.length;
         i++) // detailHintText listesinin içinde kaç tane eleman varsa o kadar istenilen veri vardır demek onun için o sayı kadar TextEditingController oluşturuyoruz.
+    {
+      print(i);
       controller.textEditingControllerList.add(TextEditingController());
+    }
+    ;
     controllerTextField = TextEditingController();
     super.initState();
   }
@@ -115,7 +119,7 @@ class _EmployeesState extends State<Employees> {
               width: double.maxFinite,
               child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: controller.detailHintText.length - 1,
+                itemCount: controller.detailHintText.length ,
                 itemBuilder: (BuildContext context, index) => TextField(
                     controller: controller.textEditingControllerList[index],
                     autofocus: true,
